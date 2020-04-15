@@ -23,7 +23,7 @@ Kerberos 简介
 
 如下图所示，Client与KDC， KDC与Service 在协议工作前已经有了各自的共享密钥，并且由于协议中的消息无法穿透防火墙，这些条件就限制了Kerberos协议往往用于一个组织的内部。
 
-![kerberos](https://ask.qcloudimg.com/http-save/yehe-2960446/ee92dvdfs8.jpeg?imageView2/2/w/1620)
+![kerberos](http://qiniu.iclouds.work/Fmaqh-qBfq-rXFuXcSUNxplf9Ibu.png)
 
 <!--more-->
 
@@ -41,7 +41,7 @@ Kerberos协议分为两个部分：
 
    Kerberos协议的重点在于第二部分，简介如下：
 
-   ![kerberos](https://ask.qcloudimg.com/http-save/yehe-2960446/peq4o4h1f1.jpeg?imageView2/2/w/1620)
+   ![kerberos](http://qiniu.iclouds.work/Fkxqfdj7TUx0InXKX3w6QkbNawBp.png)
 
    - Client将之前获得TGT和要请求的服务信息(服务名等)发送给KDC，KDC中的Ticket Granting Service将为Client和Service之间生成一个Session Key用于Service对Client的身份鉴别。然后KDC将这个Session Key和用户名，用户地址（IP），服务名，有效期, 时间戳一起包装成一个Ticket(这些信息最终用于Service对Client的身份鉴别)发送给Service， 不过Kerberos协议并没有直接将Ticket发送给Service，而是通过Client转发给Service.所以有了第二步。
    - 此时KDC将刚才的Ticket转发给Client。由于这个Ticket是要给Service的，不能让Client看到，所以KDC用协议开始前KDC与Service之间的密钥将Ticket加密后再发送给Client。同时为了让Client和Service之间共享那个秘密(KDC在第一步为它们创建的Session Key)， KDC用Client与它之间的密钥将Session Key加密随加密的Ticket一起返回给Client。

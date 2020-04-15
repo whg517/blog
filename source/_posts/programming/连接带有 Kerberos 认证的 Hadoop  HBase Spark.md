@@ -40,7 +40,7 @@ Hadoop 的配置文件。
 
 新建一个 Maven 项目
 
-![maven_project](http://ono3vb8rf.bkt.clouddn.com/FgvE_RlTJ6YsxhMw7m9lbDSKLPvd.png)
+![maven_project](https://qiniu.iclouds.work/FgvE_RlTJ6YsxhMw7m9lbDSKLPvd.png)
 
 添加 HDFS 依赖
 
@@ -62,7 +62,7 @@ Hadoop 的配置文件。
 
 将 `krb5.conf` `tendata.keytab`  放到项目根目录
 
-![](http://ono3vb8rf.bkt.clouddn.com/Fvr3toNl75tVQV6siXCnKq1bdQ_g.png)
+![](https://qiniu.iclouds.work/Fvr3toNl75tVQV6siXCnKq1bdQ_g.png)
 
 实例代码
 
@@ -291,7 +291,7 @@ public class HiveAuth {
 
 在 Resource 目录下放入 `core-site.xml` `yarn-site.xml` 两个文件。
 
-![](http://ono3vb8rf.bkt.clouddn.com/FqF9JVuTAUIj3RWpkc0lP59QtHIa.png)
+![](https://qiniu.iclouds.work/FqF9JVuTAUIj3RWpkc0lP59QtHIa.png)
 
 添加 Spark 依赖
 

@@ -266,7 +266,7 @@ OpenLDAP 2.3和更高版本已经转换为使用动态运行时配置引擎 *sla
 
 slapd配置存储为具有预定义模式和DIT的特殊LDAP目录。有特定的objectClasses用于承载全局配置选项，模式定义，后端和数据库定义以及各种其他项目。示例配置树如图5.1所示。
 
-![图 5.1](http://ono3vb8rf.bkt.clouddn.com/FmRtJjELzSWkM7K8VC21jahAN4SS.png)
+![图 5.1](https://qiniu.iclouds.work/FmRtJjELzSWkM7K8VC21jahAN4SS.png)
 
 其他对象可以是配置的一部分，但是为了清楚起见，从图示中省略。
 
@@ -2558,7 +2558,7 @@ access to dn.subtree="ou=sudoers,dc=example,dc=com"
 
 下图解释了如何构建这个集合：
 
-![图XY：填充递归组集](http://ono3vb8rf.bkt.clouddn.com/FoylQKTYLfguYkfrAUxV1bcWeofE.png)
+![图XY：填充递归组集](https://qiniu.iclouds.work/FoylQKTYLfguYkfrAUxV1bcWeofE.png)
 
 首先我们得到`uid = john` DN。此条目没有`成员`属性，因此扩展在此停止。现在我们来到`cn = accountadm`。这个确实有一个`成员`属性，这是`uid = mary`。该`UID =玛丽`项，然而，没有成员，所以我们在这里再次停止。最后的比较是：
 
@@ -2596,7 +2596,7 @@ access to dn.subtree="ou=sudoers,dc=example,dc=com"
 
 当连接用户被认证为`uid = john，ou = people，dc = example，dc = com`时，此图说明了该集合：
 
-![图XY：使用`memberUid进行`设置](http://ono3vb8rf.bkt.clouddn.com/Fn9FyhrGdS01P9RVlzfAuSJLfmUH.png)
+![图XY：使用`memberUid进行`设置](https://qiniu.iclouds.work/Fn9FyhrGdS01P9RVlzfAuSJLfmUH.png)
 
 在这种情况下，这是一场比赛。然而，如果它是`mary`验证的，她将被拒绝对`ou = sudoers的`写入权限，因为她的`uid`属性没有列在该组的`memberUid中`。
 
@@ -2641,7 +2641,7 @@ access to dn.exact="uid=john,ou=people,dc=example,dc=com"
 
 现在我们需要一张照片来帮助解释这里发生了什么（为了清楚起见，条目缩短）：
 
-![图XY：设置跳过条目](http://ono3vb8rf.bkt.clouddn.com/FpRVHSwbdNwpOccDGg141q4ayWKR.png)
+![图XY：设置跳过条目](https://qiniu.iclouds.work/FpRVHSwbdNwpOccDGg141q4ayWKR.png)
 
 在这个例子中，简是玛丽的秘书，是约翰的经理。这个整体关系由`经理`和`秘书`属性定义，它们都是distinguishedName语法（即，完整的DN）。因此，当`uid = john`条目被访问时，`这个/ manager / secretary`集合变为`{“uid = jane，ou = people，dc = example，dc = com”` }（遵循图片中的引用）：
 

@@ -24,7 +24,7 @@ categories: 运维
 
 在用户管理方面，LDAP 用来做账号管理，Kerberos作为认证。
 
-![Ambari use Kerberos+LDAP](http://ono3vb8rf.bkt.clouddn.com/FgebwAsqPaPFJTIFecC9xfXoEI3P.png)
+![Ambari use Kerberos+LDAP](FgebwAsqPaPFJTIFecC9xfXoEI3P)
 
 有关 Ambari 使用 Kerberos 文章
 
@@ -78,7 +78,7 @@ LDAP的信息是以树型结构存储的，在树根一般定义国家(c=CN)或�
 
 ### 3. LDAP组织数据的方式
 
-![LDAP组织数据的方式](http://ono3vb8rf.bkt.clouddn.com/FnauYneup7vt01kIs1g18dRLDpj3.png)
+![LDAP组织数据的方式](https://qiniu.iclouds.work/FnauYneup7vt01kIs1g18dRLDpj3.png)
 
 ### 4. Openldap 安装配置
 
