@@ -78,7 +78,7 @@ LDAP的信息是以树型结构存储的，在树根一般定义国家(c=CN)或�
 
 ### 3. LDAP组织数据的方式
 
-![LDAP组织数据的方式](https://qiniu.iclouds.work/FnauYneup7vt01kIs1g18dRLDpj3.png)
+![LDAP组织数据的方式](http://qiniu.iclouds.work/FnauYneup7vt01kIs1g18dRLDpj3.png)
 
 ### 4. Openldap 安装配置
 
