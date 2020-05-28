@@ -119,14 +119,6 @@ theme_config:
   #scheme: Pisces # 双栏 Scheme，小家碧玉似的清新
   #scheme: Gemini
 
-
-  # ---------------------------------------------------------------
-  # Sidebar Settings
-  # ---------------------------------------------------------------
-
-  # Posts / Categories / Tags in sidebar.
-  site_state: true
-
   # Social Links
   # Usage: `Key: permalink || icon`
   # Key is the link label showing to end users.
@@ -138,11 +130,11 @@ theme_config:
 
 
   # Blog rolls
-  # 友情链接
-  links_icon: link
-  links_title: Links  #标题
-  links_layout: block #布局，一行一个连接
-  #links_layout: inline
+  links_settings:
+    icon: link
+    title: 友情链接
+    # Available values: block | inline
+    layout: block
   links:  #连接
     example: http://example.com
     baidu: https://www.baidu.com
