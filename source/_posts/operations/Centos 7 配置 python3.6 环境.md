@@ -2,13 +2,17 @@
 title: Centos7 配置 Python36 环境
 author: wanghuagang
 date: 2018-04-02 18:59:00
-updated: 2017-11-27 11:47:25
+updated: 2020-05-28 11:50:00
 tags:
 - centos
 - python
 categories: 
 - 运维
 ---
+
+本文主要记录在 Centos 7 中安装 py36 环境，同时初始化基础环境，如 pip36， virtualenv 等。为以后初始新环境做模板。
+
+<!--more-->
 
 ### 安装
 
@@ -26,8 +30,6 @@ yum install python36
 [root@localhost ~]# python3.6 --version
 Python 3.6.3
 ```
-
-<!--more-->
 
 ### python3 软链接
 为了方便使用 python3.6，我们做一个 python3 的软链接到 python3.6 上

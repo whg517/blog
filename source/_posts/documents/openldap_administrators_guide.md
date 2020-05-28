@@ -2,20 +2,20 @@
 title: OpenLDAP Software 2.4 Administrator's Guide
 author: Kevin
 date: 2017-11-20 14:52:25
-updated: 2017-11-27 11:47:25
+updated: 2020-05-28 11:50:00
 tags: openldap
 categories: Documents
 ---
 
-> 说明：由于在使用 Openldap 苦于直接看以英文文档太麻烦，反正也是要阅读就边看边做笔记，于是有了次文档。记录内容呢也只是根据自己需要选择性翻译。文章内容直接由 google 翻译软件翻译，可能存在不通顺之处，还望大家多多指出。在 markdown 转换到 html 过程中可能有部分尖括号引用内容，导致丢失或者显示有误，请大家参照官方文档对比。
->
-> 后期我会不定期优化文档，补全文档。
-
-The OpenLDAP Project <<http://www.openldap.org/>> 
-
-1 June 2017
+由于在使用 Openldap 苦于直接看以英文文档太麻烦，反正也是要阅读就边看边做笔记，于是有了次文档。记录内容呢也只是根据自己需要选择性翻译。
+文章内容直接由 google 翻译软件翻译，可能存在不通顺之处，还望大家多多指出。在 markdown 转换到 html 过程中可能有部分尖括号引用内容，
+导致丢失或者显示有误，请大家参照官方文档对比。
 
 <!-- more -->
+
+后期我会不定期优化文档，补全文档。
+
+The OpenLDAP Project <<http://www.openldap.org/>> 
 
 ## 2 快速入门指南
 

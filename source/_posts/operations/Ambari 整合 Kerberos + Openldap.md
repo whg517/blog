@@ -2,7 +2,7 @@
 title: Ambari 整合 Kerberos + Openldap
 author: kevin
 date: 2017-11-20 16:18:25
-updated: 2018-08-14 17:45:25
+updated: 2020-05-28 11:50:00
 tags: 
 - ambari
 - openldap
@@ -10,15 +10,19 @@ tags:
 categories: 运维
 ---
 
-> 本文是在学习 Ambari 集成 Kerberos 做安全认证，同时使用 Openldap 作为 Ambari 和 Kerberos 的后端用户管理时总结的。
->
-> 在学习的时候参照了许多国内外的安装文档，中间也出了不少问题。都是一点点找，才搞出来。
->
-> 因为战线拉得比较长，在学习过程中，看了太多的博客，也没太仔细记录博主的连接。没能及时的在文中贴上。如果发现引用，请及时联系我。
->
-> 再次感谢走过这条路的前辈们。
->
-> 文章还有不太详细之处，后期有空会继续补充。
+本文是在学习 Ambari 集成 Kerberos 做安全认证，同时使用 Openldap 作为 Ambari 和 Kerberos 的后端用户管理时总结的。
+
+在学习的时候参照了许多国内外的安装文档，中间也出了不少问题。都是一点点找，才搞出来。
+
+因为战线拉得比较长，在学习过程中，看了太多的博客，也没太仔细记录博主的连接。没能及时的在文中贴上。如果发现引用，请及时联系我。
+
+<!-- more -->
+
+再次感谢走过这条路的前辈们。
+
+文章还有不太详细之处，后期有空会继续补充。
+
+
 
 经过测试在使用openldap + Kerberos 实现集中用户认证及授权系统时，先安装 Openldap 做后端数据库，然后安装 Kerberos 使用 Openldap ，接着配置 Openldap 使用 Kerberos 安全认证。最后安装 Ambari，配置 Ambari 使用 Kerberos。
 
@@ -30,7 +34,7 @@ categories: 运维
 
 [大数据平台搭建利器 Ambari 之 Kerberos 集成之路](https://www.ibm.com/developerworks/cn/opensource/os-cn-ambrri-kerberos/)
 
-<!-- more -->
+
 
 ## 安装前准备
 

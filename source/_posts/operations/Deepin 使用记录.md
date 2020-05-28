@@ -2,11 +2,16 @@
 title: Deepin 使用记录
 author: wanghuagang
 date: 2018-03-23 22:44:00
-updated: 2018-8-14 17:10:00
+updated: 2020-05-28 11:50:00
 tags: 
 - deepin
 categories: 运维
 ---
+
+本文是在我安装好 Deepin 15.5 之后做的系统环境初始化记录。方便以后安装新系统直接按照以前的习惯初始化环境。其中包含基础环境配置，和常见服务安装，如
+Redis 等。 
+
+<!-- more -->
 
 > 操作系统 Deepin 15.5
 
@@ -38,8 +43,6 @@ alias ll='ls -l'
 alias la='ls -A'
 #alias l='ls -CF'
 ```
-
-<!-- more -->
 
 ### 升级 python 为 3.6
 

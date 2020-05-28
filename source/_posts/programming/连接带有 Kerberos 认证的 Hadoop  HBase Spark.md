@@ -12,9 +12,11 @@ tags:
 categories: Hadoop
 ---
 
-> 说明：本文操作环境为使用 Windows 远程连接集群环境，通过代码带入 Kerberos 认证信息操作集群。
->
-> 项目为 Maven Project，添加依赖仅限于测试连接，如做额外开发可能会缺少依赖。请自行添加
+本文操作环境为使用 Windows 远程连接集群环境，通过代码带入 Kerberos 认证信息操作集群。
+
+项目为 Maven Project，添加依赖仅限于测试连接，如做额外开发可能会缺少依赖。请自行添加
+
+<!--more-->
 
 ## 操作环境
 
@@ -25,11 +27,8 @@ categories: Hadoop
 
 ## 准备文件
 
-Kerberos 配置文件。该文件一般位于 Kerberos 服务器的 `/etc/krb5.conf` 位置。将其下载到本地。
-
-Hadoop 的配置文件。
-
-<!-- more -->
+- Kerberos 配置文件。该文件一般位于 Kerberos 服务器的 `/etc/krb5.conf` 位置。将其下载到本地。
+- Hadoop 的配置文件。
 
 ## Java 连接 Hadoop
 

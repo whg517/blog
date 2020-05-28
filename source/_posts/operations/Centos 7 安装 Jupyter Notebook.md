@@ -2,7 +2,7 @@
 title: Centos 7 安装 Jupyter Notebook
 author: wanghuagang
 date: 2018-08-03 16:04:00
-updated: 2017-11-27 11:47:25
+updated: 2020-05-28 11:50:00
 tags:
 - centos
 - Jupyter notebook
@@ -10,11 +10,14 @@ categories:
 - 运维
 ---
 
-本文在 Python36 virtualenv virtualenvwrapper supervisor 环境已经配置完成的基础上操作的。如果你的环境还没准备好，可以参照此文根据自己环境调整相关操作。如果你的环境已经配置完成可以按照此文愉快的安装。如果你想安装前面提到的环境可以参考下面几篇文章。
-
-本文安装 Jupyter Notebook 是我在 Centos 7 服务器上安装的一次记录过程。此方式可以作为本地环境使用，也可以作为服务器环境部署。当然对于本次 Jupyter Notebook 的部署方式，也是我现在常用的项目部署方式----通过 supervisor 部署，而结合 virtualenvwrapper 能够更方便的控制虚拟环境。下面开始吧
+本文安装 Jupyter Notebook 是我在 Centos 7 服务器上安装的一次记录过程。此方式可以作为本地环境使用，也可以作为服务器环境部署。当然对于本次 
+Jupyter Notebook 的部署方式，也是我现在常用的项目部署方式----通过 supervisor 部署，而结合 virtualenvwrapper 能够更方便的控制虚拟环境。
+下面开始吧
 
 <!--more-->
+
+基础系统环境需要安装 Python36 virtualenv virtualenvwrapper supervisor 。如果你的环境还没准备好，可以参照此文根据自己环境
+调整相关操作。如果你的环境已经配置完成可以按照此文愉快的安装。如果你想安装前面提到的环境可以参考下面几篇文章。
 
 ## 环境准备
 

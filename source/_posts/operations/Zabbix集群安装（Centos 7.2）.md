@@ -2,13 +2,17 @@
 title: Zabbix 集群安装（Centos 7.2）
 author: wanghuagang
 date: 2018-04-02 18:59:00
-updated: 2017-11-27 11:47:25
+updated: 2020-05-28 11:50:00
 tags:
 - centos
 - zabbix
 categories: 
 - 运维
 ---
+
+本文主要介绍 Zabbix 集群安装记录。操作环境以 Centos 7 和 Zabbix 3.4 安装三节点集群。
+
+<!--more-->
 
 ## 环境说明
 
@@ -35,8 +39,6 @@ categories:
 agent 主机就是需要监控的主机，所以只要安装 zabbix-agent 服务就可以了。
 
 然后可以通过 Web 管理页面将 agent 节点添加进去做监控
-
-<!--more-->
 
 ## 安装
 

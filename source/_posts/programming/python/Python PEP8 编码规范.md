@@ -2,6 +2,7 @@
 title: Python PEP8 编码规范
 author: Kevin
 date: 2019-01-01 16:06:00
+updated: 2020-05-28 11:50:00
 tags:
 - Python
 categories: 开发
@@ -12,6 +13,8 @@ categories: 开发
 参考翻译：https://blog.csdn.net/ratsniper/article/details/78954852
 
 本文最后更新时间：2018-11-22
+
+<!-- more -->
 
 |     Item      | Deatil                                                       |
 | :-----------: | ------------------------------------------------------------ |
@@ -26,8 +29,6 @@ categories: 开发
 |    Created    | 05-Jul-2001                                                  |
 | Post-History  | 05-Jul-2001, 01-Aug-2013                                     |
 
-[TOC]
-
 ## 介绍
 
 本文提供的Python代码编码规范基于Python主要发行版本的标准库。Python的C语言实现的C代码规范请查看相应的PEP指南[^1]。
@@ -37,8 +38,6 @@ categories: 开发
 这篇规范指南随着时间的推移而逐渐演变，随着语言本身的变化，过去的约定也被淘汰了。
 
 许多项目有自己的编码规范，在出现规范冲突时，项目自身的规范优先。
-
-<!-- more -->
 
 ## 尽信书,则不如无书
 

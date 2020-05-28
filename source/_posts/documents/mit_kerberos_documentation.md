@@ -2,14 +2,16 @@
 title: MIT Kerberos Documentation (1.15.2)
 author: Kevin
 date: 2017-11-20 15:59:25
-updated: 2017-11-27 11:48:25
+updated: 2020-05-28 11:50:00
 tags: kerberos
 categories: Documents
 ---
 
-> 说明：本文使用 Google 翻译 Kerberos 官方文档。如有不通顺或错误之处，请大家及时之处，不对的地方请大家参照官方文档
+本文使用 Google 翻译 Kerberos 官方文档。如有不通顺或错误之处，请大家及时之处，不对的地方请大家参照官方文档
 
 [MIT Kerberos Documentation (1.15.2)](http://web.mit.edu/kerberos/krb5-latest/doc/)
+
+<!-- more -->
 
 # 2 对于管理员
 
@@ -17,9 +19,11 @@ categories: Documents
 
 ### 1.1.1 安装KDC
 
-在生产环境中设置Kerberos时，最好将多个从属KDC与主KDC一起使用，以确保Kerberized服务的持续可用性。每个KDC都包含Kerberos数据库的副本。主KDC包含领域数据库的可写拷贝，它会定期复制到从属KDC。所有数据库更改（如密码更改）都在主KDC上进行。当主KDC不可用时，从属KDC提供Kerberos票证授予服务，但不提供数据库管理。麻省理工学院建议您安装所有KDC，以便能够作为主机或其中一个从机。这将使您能够轻松地切换主KDC与其中一个从站（如果需要）（请参阅[切换主从KDC](http://web.mit.edu/kerberos/krb5-latest/doc/admin/install_kdc.html#switch-master-slave)）。此安装过程基于该建议。
-
-<!-- more -->
+在生产环境中设置Kerberos时，最好将多个从属KDC与主KDC一起使用，以确保Kerberized服务的持续可用性。每个KDC都包含Kerberos数据库的副本。
+主KDC包含领域数据库的可写拷贝，它会定期复制到从属KDC。所有数据库更改（如密码更改）都在主KDC上进行。当主KDC不可用时，从属KDC提供Kerberos票证授予
+服务，但不提供数据库管理。麻省理工学院建议您安装所有KDC，以便能够作为主机或其中一个从机。这将使您能够轻松地切换主KDC与其中一个从站（如果需要）
+（请参阅[切换主从KDC](http://web.mit.edu/kerberos/krb5-latest/doc/admin/install_kdc.html#switch-master-slave)）。
+此安装过程基于该建议。
 
 **警告**
 

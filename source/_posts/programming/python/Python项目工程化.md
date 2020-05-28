@@ -2,12 +2,16 @@
 title: Python 项目工程化
 author: Kevin
 date: 2018-10-12 16:38:00
+updated: 2020-05-28 11:50:00
 tags:
 - Python
 categories: 开发
 ---
 
-如果你是新手，请先参考 [The Hitchhiker’s Guide to Python!](https://docs.python-guide.org/) 。当然它有[中文版](https://pythonguidecn.readthedocs.io/zh/latest/) 
+如果你是新手，请先参考 [The Hitchhiker’s Guide to Python!](https://docs.python-guide.org/) 。
+当然它有[中文版](https://pythonguidecn.readthedocs.io/zh/latest/) 
+
+<!-- more -->
 
 ## 一、环境准备
 
@@ -18,8 +22,6 @@ Python version 3.6
 [Python 3.6](https://www.python.org/downloads/release/python-366/) / [Anaconda 5.2.0(Python 3.6.5)](https://repo.anaconda.com/archive/) / [Mininconda3-4.5.4(Python 3.6)](https://repo.continuum.io/miniconda/)
 
 在这里推荐使用 Miniconda 或者 Anaconda 安装 Python。方便管理 Python。上面各处的版本均为对应对心的 Python 3.6 版本。在使用 conda 安装 Python 的时候，推荐将 conda 注册到 PATH 中。
-
-<!-- more -->
 
 ### 2. 虚拟环境工具
 

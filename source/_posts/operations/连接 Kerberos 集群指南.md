@@ -2,14 +2,16 @@
 title: 连接 Kerberos 集群指南
 author: wanghuagang
 date: 2019-05-06 12:30:00
-updated: 2019-05-07 14:08:00
+updated: 2020-05-28 11:50:00
 tags: 
  - Kerberos
 categories:
  - 运维
 ---
 
+本文主要介绍客户端在使用 Kerberos 的时候如何连接 Kerberos 集群，使用 Kerberos 安全认证。其中包含 Windows 客户端， Linux 客户端安装使用记录。
 
+<!--more-->
 
 ## Kerberos 介绍
 
@@ -25,7 +27,6 @@ Kerberos 简介
 
 ![kerberos](http://qiniu.iclouds.work/Fmaqh-qBfq-rXFuXcSUNxplf9Ibu.png)
 
-<!--more-->
 
 **过程**
 
