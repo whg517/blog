@@ -2,7 +2,7 @@
 title: 连接带有 Kerberos 认证的 Hadoop Hbase Hive Spark
 author: Kevin
 date: 2017-11-21 18:18:08
-updated: 2017-11-27 11:47:25
+updated: 2020-05-28 10:26:00
 tags:
 - kerberos
 - hadoop
@@ -16,15 +16,14 @@ categories: Hadoop
 >
 > 项目为 Maven Project，添加依赖仅限于测试连接，如做额外开发可能会缺少依赖。请自行添加
 
-## 操作环境：
+## 操作环境
 
 - CentOS：7
 - Ambari：2.5.1.0
 - HDP：2.6.2.0-205
 - 客户机：Windows 10
 
-
-## 准备文件：
+## 准备文件
 
 Kerberos 配置文件。该文件一般位于 Kerberos 服务器的 `/etc/krb5.conf` 位置。将其下载到本地。
 
@@ -111,16 +110,12 @@ public class HadoopAuth {
 
 ```
 
-
-
 ## Java 连接 HBase
-
-
 
 添加 HBase 依赖
 
 ```xml
-		<!-- HBase dependence -->
+        <!-- HBase dependence -->
         <!-- https://mvnrepository.com/artifact/org.apache.hbase/hbase-client -->
         <dependency>
             <groupId>org.apache.hbase</groupId>
@@ -210,7 +205,7 @@ public class HBaseAuth {
 添加 Hive 依赖
 
 ```xml
-		<!-- Hive dependence -->
+        <!-- Hive dependence -->
         <!-- https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc -->
         <dependency>
             <groupId>org.apache.hive</groupId>
@@ -305,7 +300,6 @@ public class HiveAuth {
 ```
 
 
-
 实例代码
 
 ```java
@@ -397,30 +391,30 @@ object Put{
 
 ```
 Exception in thread "main" java.lang.IllegalArgumentException: Can't get Kerberos realm
-	at org.apache.hadoop.security.HadoopKerberosName.setConfiguration(HadoopKerberosName.java:65)
-	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:249)
-	at org.apache.hadoop.security.UserGroupInformation.setConfiguration(UserGroupInformation.java:285)
-	at HdfsConnKerberos.HDFSClient.main(HDFSClient.java:43)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:497)
-	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
+    at org.apache.hadoop.security.HadoopKerberosName.setConfiguration(HadoopKerberosName.java:65)
+    at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:249)
+    at org.apache.hadoop.security.UserGroupInformation.setConfiguration(UserGroupInformation.java:285)
+    at HdfsConnKerberos.HDFSClient.main(HDFSClient.java:43)
+    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke(Method.java:497)
+    at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
 Caused by: java.lang.reflect.InvocationTargetException
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:497)
-	at org.apache.hadoop.security.authentication.util.KerberosUtil.getDefaultRealm(KerberosUtil.java:84)
-	at org.apache.hadoop.security.HadoopKerberosName.setConfiguration(HadoopKerberosName.java:63)
-	... 8 more
+    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke(Method.java:497)
+    at org.apache.hadoop.security.authentication.util.KerberosUtil.getDefaultRealm(KerberosUtil.java:84)
+    at org.apache.hadoop.security.HadoopKerberosName.setConfiguration(HadoopKerberosName.java:63)
+    ... 8 more
 Caused by: KrbException: Cannot locate default realm
-	at sun.security.krb5.Config.getDefaultRealm(Config.java:1006)
-	... 14 more
+    at sun.security.krb5.Config.getDefaultRealm(Config.java:1006)
+    ... 14 more
 Caused by: KrbException: Generic error (description in e-text) (60) - Unable to locate Kerberos realm
-	at sun.security.krb5.Config.getRealmFromDNS(Config.java:1102)
-	at sun.security.krb5.Config.getDefaultRealm(Config.java:987)
-	... 14 more
+    at sun.security.krb5.Config.getRealmFromDNS(Config.java:1102)
+    at sun.security.krb5.Config.getDefaultRealm(Config.java:987)
+    ... 14 more
 ```
 
 主要几点
@@ -430,8 +424,6 @@ Caused by: KrbException: Cannot locate default realm
 
 Caused by: KrbException: Generic error (description in e-text) (60) - Unable to locate Kerberos realm
 ```
-
-
 
 主要原因在代码中没有添加 `krb5.conf` 这个配置，所以检查这个配置文件的是否存在和文件内容的正确性
 
@@ -495,38 +487,38 @@ conf.set("hbase.security.authentication", "kerberos");      // 指定 HBase 安�
 
 ```java
 Exception in thread "main" java.io.IOException: java.lang.reflect.InvocationTargetException
-	at org.apache.hadoop.hbase.client.ConnectionFactory.createConnection(ConnectionFactory.java:240)
-	at org.apache.hadoop.hbase.client.ConnectionFactory.createConnection(ConnectionFactory.java:218)
-	at org.apache.hadoop.hbase.client.ConnectionFactory.createConnection(ConnectionFactory.java:119)
-	at HBaseAuth.main(HBaseAuth.java:33)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:497)
-	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
+    at org.apache.hadoop.hbase.client.ConnectionFactory.createConnection(ConnectionFactory.java:240)
+    at org.apache.hadoop.hbase.client.ConnectionFactory.createConnection(ConnectionFactory.java:218)
+    at org.apache.hadoop.hbase.client.ConnectionFactory.createConnection(ConnectionFactory.java:119)
+    at HBaseAuth.main(HBaseAuth.java:33)
+    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke(Method.java:497)
+    at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
 Caused by: java.lang.reflect.InvocationTargetException
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
-	at org.apache.hadoop.hbase.client.ConnectionFactory.createConnection(ConnectionFactory.java:238)
-	... 8 more
+    at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+    at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+    at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+    at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+    at org.apache.hadoop.hbase.client.ConnectionFactory.createConnection(ConnectionFactory.java:238)
+    ... 8 more
 Caused by: java.lang.UnsupportedOperationException: Unable to find org.apache.hadoop.hbase.ipc.controller.ServerRpcControllerFactory
-	at org.apache.hadoop.hbase.util.ReflectionUtils.instantiateWithCustomCtor(ReflectionUtils.java:36)
-	at org.apache.hadoop.hbase.ipc.RpcControllerFactory.instantiate(RpcControllerFactory.java:58)
-	at org.apache.hadoop.hbase.client.ConnectionManager$HConnectionImplementation.createAsyncProcess(ConnectionManager.java:2256)
-	at org.apache.hadoop.hbase.client.ConnectionManager$HConnectionImplementation.<init>(ConnectionManager.java:691)
-	at org.apache.hadoop.hbase.client.ConnectionManager$HConnectionImplementation.<init>(ConnectionManager.java:631)
-	... 13 more
+    at org.apache.hadoop.hbase.util.ReflectionUtils.instantiateWithCustomCtor(ReflectionUtils.java:36)
+    at org.apache.hadoop.hbase.ipc.RpcControllerFactory.instantiate(RpcControllerFactory.java:58)
+    at org.apache.hadoop.hbase.client.ConnectionManager$HConnectionImplementation.createAsyncProcess(ConnectionManager.java:2256)
+    at org.apache.hadoop.hbase.client.ConnectionManager$HConnectionImplementation.<init>(ConnectionManager.java:691)
+    at org.apache.hadoop.hbase.client.ConnectionManager$HConnectionImplementation.<init>(ConnectionManager.java:631)
+    ... 13 more
 Caused by: java.lang.ClassNotFoundException: org.apache.hadoop.hbase.ipc.controller.ServerRpcControllerFactory
-	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
-	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
-	at java.lang.Class.forName0(Native Method)
-	at java.lang.Class.forName(Class.java:264)
-	at org.apache.hadoop.hbase.util.ReflectionUtils.instantiateWithCustomCtor(ReflectionUtils.java:32)
-	... 17 more
+    at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+    at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+    at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
+    at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+    at java.lang.Class.forName0(Native Method)
+    at java.lang.Class.forName(Class.java:264)
+    at org.apache.hadoop.hbase.util.ReflectionUtils.instantiateWithCustomCtor(ReflectionUtils.java:32)
+    ... 17 more
 ```
 
 https://www.cnblogs.com/itboys/p/6862366.html
@@ -548,62 +540,62 @@ https://www.cnblogs.com/itboys/p/6862366.html
 
 ```
 Exception in thread "main" org.apache.hadoop.security.AccessControlException: SIMPLE authentication is not enabled.  Available:[TOKEN, KERBEROS]
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
-	at org.apache.hadoop.ipc.RemoteException.instantiateException(RemoteException.java:106)
-	at org.apache.hadoop.ipc.RemoteException.unwrapRemoteException(RemoteException.java:73)
-	at org.apache.hadoop.hdfs.DFSClient.getFileInfo(DFSClient.java:2110)
-	at org.apache.hadoop.hdfs.DistributedFileSystem$22.doCall(DistributedFileSystem.java:1305)
-	at org.apache.hadoop.hdfs.DistributedFileSystem$22.doCall(DistributedFileSystem.java:1301)
-	at org.apache.hadoop.fs.FileSystemLinkResolver.resolve(FileSystemLinkResolver.java:81)
-	at org.apache.hadoop.hdfs.DistributedFileSystem.getFileStatus(DistributedFileSystem.java:1317)
-	at org.apache.hadoop.fs.Globber.getFileStatus(Globber.java:57)
-	at org.apache.hadoop.fs.Globber.glob(Globber.java:252)
-	at org.apache.hadoop.fs.FileSystem.globStatus(FileSystem.java:1674)
-	at org.apache.hadoop.mapred.FileInputFormat.singleThreadedListStatus(FileInputFormat.java:259)
-	at org.apache.hadoop.mapred.FileInputFormat.listStatus(FileInputFormat.java:229)
-	at org.apache.hadoop.mapred.FileInputFormat.getSplits(FileInputFormat.java:315)
-	at org.apache.spark.rdd.HadoopRDD.getPartitions(HadoopRDD.scala:200)
-	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:248)
-	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:246)
-	at scala.Option.getOrElse(Option.scala:121)
-	at org.apache.spark.rdd.RDD.partitions(RDD.scala:246)
-	at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:35)
-	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:248)
-	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:246)
-	at scala.Option.getOrElse(Option.scala:121)
-	at org.apache.spark.rdd.RDD.partitions(RDD.scala:246)
-	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1911)
-	at org.apache.spark.rdd.RDD$$anonfun$foreach$1.apply(RDD.scala:875)
-	at org.apache.spark.rdd.RDD$$anonfun$foreach$1.apply(RDD.scala:873)
-	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
-	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
-	at org.apache.spark.rdd.RDD.withScope(RDD.scala:358)
-	at org.apache.spark.rdd.RDD.foreach(RDD.scala:873)
-	at HDFS.SparkHDFS$.main(SparkHDFS.scala:43)
-	at HDFS.SparkHDFS.main(SparkHDFS.scala)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:497)
-	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
+    at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+    at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+    at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+    at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+    at org.apache.hadoop.ipc.RemoteException.instantiateException(RemoteException.java:106)
+    at org.apache.hadoop.ipc.RemoteException.unwrapRemoteException(RemoteException.java:73)
+    at org.apache.hadoop.hdfs.DFSClient.getFileInfo(DFSClient.java:2110)
+    at org.apache.hadoop.hdfs.DistributedFileSystem$22.doCall(DistributedFileSystem.java:1305)
+    at org.apache.hadoop.hdfs.DistributedFileSystem$22.doCall(DistributedFileSystem.java:1301)
+    at org.apache.hadoop.fs.FileSystemLinkResolver.resolve(FileSystemLinkResolver.java:81)
+    at org.apache.hadoop.hdfs.DistributedFileSystem.getFileStatus(DistributedFileSystem.java:1317)
+    at org.apache.hadoop.fs.Globber.getFileStatus(Globber.java:57)
+    at org.apache.hadoop.fs.Globber.glob(Globber.java:252)
+    at org.apache.hadoop.fs.FileSystem.globStatus(FileSystem.java:1674)
+    at org.apache.hadoop.mapred.FileInputFormat.singleThreadedListStatus(FileInputFormat.java:259)
+    at org.apache.hadoop.mapred.FileInputFormat.listStatus(FileInputFormat.java:229)
+    at org.apache.hadoop.mapred.FileInputFormat.getSplits(FileInputFormat.java:315)
+    at org.apache.spark.rdd.HadoopRDD.getPartitions(HadoopRDD.scala:200)
+    at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:248)
+    at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:246)
+    at scala.Option.getOrElse(Option.scala:121)
+    at org.apache.spark.rdd.RDD.partitions(RDD.scala:246)
+    at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:35)
+    at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:248)
+    at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:246)
+    at scala.Option.getOrElse(Option.scala:121)
+    at org.apache.spark.rdd.RDD.partitions(RDD.scala:246)
+    at org.apache.spark.SparkContext.runJob(SparkContext.scala:1911)
+    at org.apache.spark.rdd.RDD$$anonfun$foreach$1.apply(RDD.scala:875)
+    at org.apache.spark.rdd.RDD$$anonfun$foreach$1.apply(RDD.scala:873)
+    at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+    at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+    at org.apache.spark.rdd.RDD.withScope(RDD.scala:358)
+    at org.apache.spark.rdd.RDD.foreach(RDD.scala:873)
+    at HDFS.SparkHDFS$.main(SparkHDFS.scala:43)
+    at HDFS.SparkHDFS.main(SparkHDFS.scala)
+    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke(Method.java:497)
+    at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
 Caused by: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.security.AccessControlException): SIMPLE authentication is not enabled.  Available:[TOKEN, KERBEROS]
-	at org.apache.hadoop.ipc.Client.call(Client.java:1475)
-	at org.apache.hadoop.ipc.Client.call(Client.java:1412)
-	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:229)
-	at com.sun.proxy.$Proxy20.getFileInfo(Unknown Source)
-	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.getFileInfo(ClientNamenodeProtocolTranslatorPB.java:771)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:497)
-	at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:191)
-	at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:102)
-	at com.sun.proxy.$Proxy21.getFileInfo(Unknown Source)
-	at org.apache.hadoop.hdfs.DFSClient.getFileInfo(DFSClient.java:2108)
-	... 34 more
+    at org.apache.hadoop.ipc.Client.call(Client.java:1475)
+    at org.apache.hadoop.ipc.Client.call(Client.java:1412)
+    at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:229)
+    at com.sun.proxy.$Proxy20.getFileInfo(Unknown Source)
+    at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.getFileInfo(ClientNamenodeProtocolTranslatorPB.java:771)
+    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke(Method.java:497)
+    at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:191)
+    at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:102)
+    at com.sun.proxy.$Proxy21.getFileInfo(Unknown Source)
+    at org.apache.hadoop.hdfs.DFSClient.getFileInfo(DFSClient.java:2108)
+    ... 34 more
 ```
 
 直接在 Resource 目录下加入 `core-site.xml` 配置文件即可。
@@ -616,35 +608,35 @@ Caused by: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.security.Acce
 
 ```
 Exception in thread "main" java.io.IOException: Can't get Master Kerberos principal for use as renewer
-	at org.apache.hadoop.mapreduce.security.TokenCache.obtainTokensForNamenodesInternal(TokenCache.java:116)
-	at org.apache.hadoop.mapreduce.security.TokenCache.obtainTokensForNamenodesInternal(TokenCache.java:100)
-	at org.apache.hadoop.mapreduce.security.TokenCache.obtainTokensForNamenodes(TokenCache.java:80)
-	at org.apache.hadoop.mapred.FileInputFormat.listStatus(FileInputFormat.java:205)
-	at org.apache.hadoop.mapred.FileInputFormat.getSplits(FileInputFormat.java:313)
-	at org.apache.spark.rdd.HadoopRDD.getPartitions(HadoopRDD.scala:202)
-	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:239)
-	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:237)
-	at scala.Option.getOrElse(Option.scala:121)
-	at org.apache.spark.rdd.RDD.partitions(RDD.scala:237)
-	at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:35)
-	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:239)
-	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:237)
-	at scala.Option.getOrElse(Option.scala:121)
-	at org.apache.spark.rdd.RDD.partitions(RDD.scala:237)
-	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1929)
-	at org.apache.spark.rdd.RDD$$anonfun$collect$1.apply(RDD.scala:927)
-	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:150)
-	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:111)
-	at org.apache.spark.rdd.RDD.withScope(RDD.scala:316)
-	at org.apache.spark.rdd.RDD.collect(RDD.scala:926)
-	at org.apache.spark.api.java.JavaRDDLike$class.collect(JavaRDDLike.scala:339)
-	at org.apache.spark.api.java.AbstractJavaRDDLike.collect(JavaRDDLike.scala:46)
-	at SparkAuth.main(SparkAuth.java:43)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:497)
-	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
+    at org.apache.hadoop.mapreduce.security.TokenCache.obtainTokensForNamenodesInternal(TokenCache.java:116)
+    at org.apache.hadoop.mapreduce.security.TokenCache.obtainTokensForNamenodesInternal(TokenCache.java:100)
+    at org.apache.hadoop.mapreduce.security.TokenCache.obtainTokensForNamenodes(TokenCache.java:80)
+    at org.apache.hadoop.mapred.FileInputFormat.listStatus(FileInputFormat.java:205)
+    at org.apache.hadoop.mapred.FileInputFormat.getSplits(FileInputFormat.java:313)
+    at org.apache.spark.rdd.HadoopRDD.getPartitions(HadoopRDD.scala:202)
+    at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:239)
+    at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:237)
+    at scala.Option.getOrElse(Option.scala:121)
+    at org.apache.spark.rdd.RDD.partitions(RDD.scala:237)
+    at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:35)
+    at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:239)
+    at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:237)
+    at scala.Option.getOrElse(Option.scala:121)
+    at org.apache.spark.rdd.RDD.partitions(RDD.scala:237)
+    at org.apache.spark.SparkContext.runJob(SparkContext.scala:1929)
+    at org.apache.spark.rdd.RDD$$anonfun$collect$1.apply(RDD.scala:927)
+    at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:150)
+    at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:111)
+    at org.apache.spark.rdd.RDD.withScope(RDD.scala:316)
+    at org.apache.spark.rdd.RDD.collect(RDD.scala:926)
+    at org.apache.spark.api.java.JavaRDDLike$class.collect(JavaRDDLike.scala:339)
+    at org.apache.spark.api.java.AbstractJavaRDDLike.collect(JavaRDDLike.scala:46)
+    at SparkAuth.main(SparkAuth.java:43)
+    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke(Method.java:497)
+    at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
 ```
 
 解决办法：
@@ -653,9 +645,125 @@ Exception in thread "main" java.io.IOException: Can't get Master Kerberos princi
 
 **针对前两个错误，主要在 Spark 中出现。本人猜测，可能是因为在 Windows 端运行 local 模式程序的时候，本地作为 Driver，当 Executor 端 真正去访问 HDFS 中的资源的时候， Executor 并没有拿到认证身份。所以，在加入配置文件后， Executor 端会通过配置去相应位置使用 keytab 获取 kgt ，然后正常访问集群中的资源。**
 
-本人才疏学浅，说法可能有误，上述说法仅代表本人观点。如有不正确还望及时联系纠正。
+> Update 2020-04-17 16:22:00
 
-E-mail: kiven517@126.com
+在开发端远程提交 mapreduce 任务的时候同样出现了这个问题。在此确认是由于 yarn 的认证问题。
+
+解决方案：
+
+增加 `yarn` 相关 principal。
+
+```java
+configuration.set("yarn.nodemanager.principal", "nm/_HOST@TENDATA.CN");
+configuration.set("yarn.resourcemanager.principal", "rm/_HOST@TENDATA.CN");
+```
+
+##### Secure IO is not possible without native code extensions.
+
+运行 mapreduce 任务，出现如下问题
+
+```
+java.lang.Exception: org.apache.hadoop.mapreduce.task.reduce.Shuffle$ShuffleError: error in shuffle in localfetcher#1
+    at org.apache.hadoop.mapred.LocalJobRunner$Job.runTasks(LocalJobRunner.java:492)
+    at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:559)
+Caused by: org.apache.hadoop.mapreduce.task.reduce.Shuffle$ShuffleError: error in shuffle in localfetcher#1
+    at org.apache.hadoop.mapreduce.task.reduce.Shuffle.run(Shuffle.java:134)
+    at org.apache.hadoop.mapred.ReduceTask.run(ReduceTask.java:377)
+    at org.apache.hadoop.mapred.LocalJobRunner$Job$ReduceTaskRunnable.run(LocalJobRunner.java:347)
+    at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+    at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+    at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+    at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+    at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.ExceptionInInitializerError
+    at org.apache.hadoop.mapred.SpillRecord.<init>(SpillRecord.java:71)
+    at org.apache.hadoop.mapred.SpillRecord.<init>(SpillRecord.java:62)
+    at org.apache.hadoop.mapred.SpillRecord.<init>(SpillRecord.java:57)
+    at org.apache.hadoop.mapreduce.task.reduce.LocalFetcher.copyMapOutput(LocalFetcher.java:125)
+    at org.apache.hadoop.mapreduce.task.reduce.LocalFetcher.doCopy(LocalFetcher.java:103)
+    at org.apache.hadoop.mapreduce.task.reduce.LocalFetcher.run(LocalFetcher.java:86)
+Caused by: java.lang.RuntimeException: Secure IO is not possible without native code extensions.
+    at org.apache.hadoop.io.SecureIOUtils.<clinit>(SecureIOUtils.java:71)
+    ... 6 more
+2020-04-17 20:16
+```
+
+这个问题是由于没有使用 `Tative library` 导致的，在程序运行第一行一般会有个警告 `Unable to load native-hadoop library for your platform... using builtin-java classes where applicable`
+这是没有加载动态库。一般情况下 Hadoop 的二进制报已经包含了，只是没有在系统中加载。
+
+动态库在 `$HADOOP_HOME/lib/native` 里面，没有的要去找一下，或者自己编译。
+
+有了动态库还需要在系统中配置，推荐是配置环境变量：
+
+```
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HADOOP_COMMON_LIB_NATIVE_DIR
+```
+
+环境变量生效后就可以看到警告消除，而且程序也不会出现上面提到的问题啦。
+
+
+##### Exceeded MAX_FAILED_UNIQUE_FETCHES; bailing-out
+
+这个问题是在使用了 Kerberos 认证的时候出现的，如果没有使用认证也出现了请参考 [Hadoop error in shuffle in fetcher: Exceeded MAX_FAILED_UNIQUE_FETCHES](https://stackoverflow.com/questions/24066128/hadoop-error-in-shuffle-in-fetcher-exceeded-max-failed-unique-fetches) 解决。
+
+出现这个问题是在集群客户端使用 `yarn jar demo.jar` 在集群中运行 mapreduce 任务的时候报错了。
+
+```
+Error: org.apache.hadoop.mapreduce.task.reduce.Shuffle$ShuffleError: error in shuffle in fetcher#30
+    at org.apache.hadoop.mapreduce.task.reduce.Shuffle.run(Shuffle.java:134)
+    at org.apache.hadoop.mapred.ReduceTask.run(ReduceTask.java:377)
+    at org.apache.hadoop.mapred.YarnChild$2.run(YarnChild.java:174)
+    at java.security.AccessController.doPrivileged(Native Method)
+    at javax.security.auth.Subject.doAs(Subject.java:422)
+    at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1730)
+    at org.apache.hadoop.mapred.YarnChild.main(YarnChild.java:168)
+Caused by: java.io.IOException: Exceeded MAX_FAILED_UNIQUE_FETCHES; bailing-out.
+    at org.apache.hadoop.mapreduce.task.reduce.ShuffleSchedulerImpl.checkReducerHealth(ShuffleSchedulerImpl.java:396)
+    at org.apache.hadoop.mapreduce.task.reduce.ShuffleSchedulerImpl.copyFailed(ShuffleSchedulerImpl.java:311)
+    at org.apache.hadoop.mapreduce.task.reduce.Fetcher.copyFromHost(Fetcher.java:361)
+    at org.apache.hadoop.mapreduce.task.reduce.Fetcher.run(Fetcher.java:198)
+```
+
+当时想到运行 mapreduce 任务需要增加相关认证信息，但是没有加完整。完整认证代码如下
+
+```java
+package demo.utils;
+
+import java.io.IOException;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.security.UserGroupInformation;
+
+public class Auth {
+    private String keytab;
+
+    public Auth(String keytab) {
+        this.keytab = keytab;
+    }
+
+    public void authorization(Configuration configuration) {
+        System.setProperty("java.security.krb5.conf", "/etc/krb5.conf");
+        configuration.set("hadoop.security.authentication", "Kerberos");
+        configuration.set("fs.defaultFS", "hdfs://m1.node.hadoop");
+        configuration.set("dfs.namenode.kerberos.principal.pattern", "nn/*@TENDATA.CN");
+        configuration.set("yarn.nodemanager.principal", "nm/_HOST@TENDATA.CN");
+        configuration.set("yarn.resourcemanager.principal", "rm/_HOST@TENDATA.CN");
+        configuration.set("yarn.nodemanager.webapp.spnego-principal", "HTTP/_HOST@TENDATA.CN");     // 集群运行的时候一定要加，在执行 shuffle 的时候会在集群间交换数据
+        configuration.set("yarn.resourcemanager.webapp.spnego-principal", "HTTP/_HOST@TENDATA.CN"); // 这也也要加上
+        UserGroupInformation.setConfiguration(configuration);
+        try {
+            UserGroupInformation.setConfiguration(configuration);
+            UserGroupInformation.loginUserFromKeytab("whg@TENDATA.CN", this.keytab);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+代码如上，在运行 mapreduce 任务的时候除了增加 `yarn.nodemanager.principal` 和 `yarn.resourcemanager.principal` 的配置还要增加 `yarn.nodemanager.webapp.spnego-principal`
+ 和 `yarn.resourcemanager.webapp.spnego-principal` 的配置，否则集群间交换数据会报上面的问题。在开发环境即 local 模式运行的时候可以不用后面两个。
 
 ##### 7. 终极解决问题
 
