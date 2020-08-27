@@ -9,12 +9,12 @@ description: I Love You !   # 网站描述
 keywords:
 author: huagang  # 您的名字
 language: zh-CN # 网站使用的语言
-timezone:   # 网站时区。Hexo 默认使用您电脑的时区。
+timezone: Asia/Shanghai   # 网站时区。Hexo 默认使用您电脑的时区。
 
 # URL 网址
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 # 如果您的网站存放在子目录中，例如 http://yoursite.com/blog，则请将您的 url 设为 http://yoursite.com/blog 并把 root 设为 /blog/。
-url: http://yoursite.com  # 网址
+url: http://blog.iclouds.work  # 网址
 root: / # 网站根目录
 permalink: :year/:month/:day/:title/  # 文章的 永久链接 格式	:year/:month/:day/:title/
 permalink_defaults: # 永久链接中各部分的默认值
@@ -85,6 +85,31 @@ deploy: # 部署部分的设置
   branch: master
 
 
+# Markdown-it config
+## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
+markdown:
+  render:
+    html: true # 该html设置定义是否应转义文档内的HTML内容或将其传递给最终结果。
+    xhtmlOut: false # 该xhtmlOut设置定义解析器是否将导出与XHTML完全兼容的标记。仅需要true完整的[CommonMark]支持。
+    breaks: true  # 使源文件中的换行符将被解析为<br>标记，或者忽略
+    linkify: true # 解析器可以内联直接粘贴到文本中的链接。
+    typographer: true # 这样可以替代常见的排版元素，例如©，弯引号，破折号等。
+    quotes: '“”‘’'  # Defines the double and single quotes used for substituting dumb quotes if typographer is set to true.
+  plugins:
+    - markdown-it-abbr
+    - markdown-it-footnote
+    - markdown-it-ins
+    - markdown-it-sub
+    - markdown-it-sup
+  anchors:
+    level: 2
+    collisionSuffix: 'v'
+    permalink: true
+    permalinkClass: header-anchor
+    permalinkSide: 'left'
+    permalinkSymbol: ¶
+
+
 theme_config:
   #==================================
   # themes config
@@ -109,6 +134,7 @@ theme_config:
     #sitemap: /sitemap.xml || sitemap
     #commonweal: /404/ || heartbeat
 
+
   # ---------------------------------------------------------------
   # Scheme Settings
   # ---------------------------------------------------------------
@@ -127,6 +153,54 @@ theme_config:
   social:
     GitHub: https://github.com/whg517 || github
     E-Mail: huagang517@126.com || envelope
+
+
+  # ---------------------------------------------------------------
+  # Misc Theme Settings
+  # ---------------------------------------------------------------
+
+  codeblock:
+    # Code Highlight theme
+    # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic
+    # See: https://github.com/chriskempson/tomorrow-theme
+    highlight_theme: normal
+    # Add copy button on codeblock
+    copy_button:
+      enable: true
+      # Show text copy result.
+      show_result: false
+      # Available values: default | flat | mac
+      style:
+
+  # `Follow me on GitHub` banner in the top-right corner.
+  github_banner:
+    enable: true
+    permalink: https://github.com/whg517
+    title: Follow me on GitHub
+
+
+  # ---------------------------------------------------------------
+  # SEO Settings
+  # ---------------------------------------------------------------
+
+  # Google Webmaster tools verification.
+  # See: https://www.google.com/webmasters
+  google_site_verification:
+
+  # Bing Webmaster tools verification.
+  # See: https://www.bing.com/webmaster
+  bing_site_verification:
+
+  # Yandex Webmaster tools verification.
+  # See: https://webmaster.yandex.ru
+  yandex_site_verification:
+
+  # Baidu Webmaster tools verification.
+  # See: https://ziyuan.baidu.com/site
+  baidu_site_verification:
+
+  # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO.
+  baidu_push: true
 
 
   # Blog rolls
