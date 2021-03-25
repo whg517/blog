@@ -34,18 +34,19 @@ skip_render:  # 跳过指定文件的渲染，您可使用 glob 表达式来匹�
 new_post_name: :title.md # File name of new posts # 新文章的文件名称	:title.md
 default_layout: post  # 预设布局	post
 titlecase: false # Transform title into titlecase # 把标题转换为 title case	false
-external_link: true # Open external links in new tab  # 在新标签中打开链接	true
+external_link:
+  enable: true # Open external links in new tab  # 在新标签中打开链接	true
 filename_case: 0  # 把文件名称转换为 (1) 小写或 (2) 大写	0
 render_drafts: false  # 显示草稿	false
 post_asset_folder: false  # 启动 Asset 文件夹	false
 relative_link: false  # 把链接改为与根目录的相对位址	false
 future: true  # 显示未来的文章	true
-highlight:  # 代码块的设置
+highlight: # 代码块的设置
   enable: true
   line_number: true
   auto_detect: false
   tab_replace:
-  
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
@@ -54,7 +55,7 @@ index_generator:
   path: ''
   per_page: 10
   order_by: -date
-  
+
 # Category & Tag  分类 & 标签 
 default_category: uncategorized # 默认分类
 category_map: # 分类别名
@@ -81,7 +82,7 @@ theme: next  # 当前主题名称。值为false时禁用主题
 ## Docs: https://hexo.io/docs/deployment.html
 deploy: # 部署部分的设置
   type: git # 使用 git 提交
-  repository: git@github.com:whg517/whg517.github.io.git  # 存放博客的仓库地址 
+  repository: https://github.com/whg517/whg517.github.io.git  # 存放博客的仓库地址
   branch: master
 
 
@@ -209,7 +210,7 @@ theme_config:
     title: 友情链接
     # Available values: block | inline
     layout: block
-  links:  #连接
+  links: #连接
     example: http://example.com
     baidu: https://www.baidu.com
     google: https://www.google.com

@@ -13,6 +13,8 @@ categories: Documents
 
 <!-- more -->
 
+[TOC]
+
 # 2 对于管理员
 
 ## 1.1 安装指南
