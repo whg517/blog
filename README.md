@@ -2,6 +2,8 @@
 
 **说明**：此仓库为个人博客源码目录
 
+# 项目已经迁移到 [whg517/whg517.github.io](https://github.com/whg517/whg517.github.io)
+
 ## 使用说明
 
 博客使用 [Hexo 博客框架](https://hexo.io/zh-cn/docs/) 详细操作请参考官方文档。
