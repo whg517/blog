@@ -2,50 +2,59 @@
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
 
-# Site  网站
-title: Myblog # 网站标题
-subtitle: Hello World ! # 网站副标题
-description: I Love You !   # 网站描述
+# Site
+title: Myblog
+subtitle: Hello World !
+description: I Love You !
 keywords:
-author: huagang  # 您的名字
-language: zh-CN # 网站使用的语言
-timezone: Asia/Shanghai   # 网站时区。Hexo 默认使用您电脑的时区。
+author: huagang
+language: zh-CN
+timezone: Asia/Shanghai
 
-# URL 网址
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-# 如果您的网站存放在子目录中，例如 http://yoursite.com/blog，则请将您的 url 设为 http://yoursite.com/blog 并把 root 设为 /blog/。
-url: http://blog.iclouds.work  # 网址
-root: / # 网站根目录
-permalink: :year/:month/:day/:title/  # 文章的 永久链接 格式	:year/:month/:day/:title/
-permalink_defaults: # 永久链接中各部分的默认值
+# URL
+## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
+url: http://blog.iclouds.work
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: true # Set to false to remove trailing '.html' from permalinks
 
-# Directory  目录
-# 如果您刚刚开始接触Hexo，通常没有必要修改这一部分的值。
-source_dir: source  # 资源文件夹，这个文件夹用来存放内容。source
-public_dir: public  # 公共文件夹，这个文件夹用于存放生成的站点文件。	public
-tag_dir: tags # 标签文件夹	tags
-archive_dir: archives # 归档文件夹	archives
-category_dir: categories  # 分类文件夹	categories
-code_dir: downloads/code  # Include code 文件夹	downloads/code
-i18n_dir: :lang # 国际化（i18n）文件夹	:lang
-skip_render:  # 跳过指定文件的渲染，您可使用 glob 表达式来匹配路径。	
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:  # 跳过指定文件的渲染，您可使用 glob 表达式来匹配路径。
 
-# Writing 文章
-new_post_name: :title.md # File name of new posts # 新文章的文件名称	:title.md
-default_layout: post  # 预设布局	post
-titlecase: false # Transform title into titlecase # 把标题转换为 title case	false
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
 external_link:
-  enable: true # Open external links in new tab  # 在新标签中打开链接	true
+  enable: true # Open external links in new tab
+  field: site # Apply to the whole site
+  exclude: ''
 filename_case: 0  # 把文件名称转换为 (1) 小写或 (2) 大写	0
 render_drafts: false  # 显示草稿	false
-post_asset_folder: false  # 启动 Asset 文件夹	false
-relative_link: false  # 把链接改为与根目录的相对位址	false
-future: true  # 显示未来的文章	true
-highlight: # 代码块的设置
+post_asset_folder: false   # 启用 Asset 文件夹
+relative_link: false  # 把链接改为与根目录的相对位址
+future: true
+highlight:   # 代码块的设置
   enable: true
   line_number: true
   auto_detect: false
-  tab_replace:
+  tab_replace: ''
+  wrap: true
+  hljs: false
+prismjs:
+  enable: false
+  preprocess: true
+  line_number: true
+  tab_replace: ''
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -56,161 +65,66 @@ index_generator:
   per_page: 10
   order_by: -date
 
-# Category & Tag  分类 & 标签 
-default_category: uncategorized # 默认分类
-category_map: # 分类别名
-tag_map:  # 标签别名	
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
 
-# Date / Time format  # 日期 / 时间格式
+# Metadata elements
+## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+meta_generator: true
+
+# Date / Time format
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
 ## http://momentjs.com/docs/#/displaying/format/
-date_format: YYYY-MM-DD # 日期格式
-time_format: HH:mm:ss # 时间格式
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+## updated_option supports 'mtime', 'date', 'empty'
+updated_option: 'mtime'
 
-# Pagination  分页
+# Pagination
 ## Set per_page to 0 to disable pagination
-per_page: 10  # 每页显示的文章量 (0 = 关闭分页功能)
-pagination_dir: page  # 分页目录
+per_page: 10
+pagination_dir: page
+
+# Include / Exclude file(s)
+## include:/exclude: options only apply to the 'source/' folder
+include:
+exclude:
+ignore:
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next  # 当前主题名称。值为false时禁用主题
+theme: landscape
 
 # Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy: # 部署部分的设置
-  type: git # 使用 git 提交
-  repository: https://github.com/whg517/whg517.github.io.git  # 存放博客的仓库地址
-  branch: master
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+  type: ''
 
 
 # Markdown-it config
 ## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
-markdown:
-  render:
-    html: true # 该html设置定义是否应转义文档内的HTML内容或将其传递给最终结果。
-    xhtmlOut: false # 该xhtmlOut设置定义解析器是否将导出与XHTML完全兼容的标记。仅需要true完整的[CommonMark]支持。
-    breaks: true  # 使源文件中的换行符将被解析为<br>标记，或者忽略
-    linkify: true # 解析器可以内联直接粘贴到文本中的链接。
-    typographer: true # 这样可以替代常见的排版元素，例如©，弯引号，破折号等。
-    quotes: '“”‘’'  # Defines the double and single quotes used for substituting dumb quotes if typographer is set to true.
-  plugins:
-    - markdown-it-abbr
-    - markdown-it-footnote
-    - markdown-it-ins
-    - markdown-it-sub
-    - markdown-it-sup
-  anchors:
-    level: 2
-    collisionSuffix: 'v'
-    permalink: true
-    permalinkClass: header-anchor
-    permalinkSide: 'left'
-    permalinkSymbol: ¶
-
-
-theme_config:
-  #==================================
-  # themes config
-
-  # ---------------------------------------------------------------
-  # Menu Settings
-  # ---------------------------------------------------------------
-
-  # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash from link value (/archives -> archives).
-  # Usage: `Key: /link/ || icon`
-  # Key is the name of menu item. If translate for this menu will find in languages - this translate will be loaded; if not - Key name will be used. Key is case-senstive.
-  # Value before `||` delimeter is the target link.
-  # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
-  # External url should start with http:// or https://
-  menu:
-    home: / || home
-    tags: /tags/ || tags
-    categories: /categories/ || th
-    archives: /archives/ || archive
-    about: /about/ || user
-    #schedule: /schedule/ || calendar
-    #sitemap: /sitemap.xml || sitemap
-    #commonweal: /404/ || heartbeat
-
-
-  # ---------------------------------------------------------------
-  # Scheme Settings
-  # ---------------------------------------------------------------
-
-  # Schemes
-  #scheme: Muse  # 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白
-  scheme: Mist # Muse 的紧凑版本，整洁有序的单栏外观
-  #scheme: Pisces # 双栏 Scheme，小家碧玉似的清新
-  #scheme: Gemini
-
-  # Social Links
-  # Usage: `Key: permalink || icon`
-  # Key is the link label showing to end users.
-  # Value before `||` delimeter is the target permalink.
-  # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
-  social:
-    GitHub: https://github.com/whg517 || github
-    E-Mail: huagang517@126.com || envelope
-
-
-  # ---------------------------------------------------------------
-  # Misc Theme Settings
-  # ---------------------------------------------------------------
-
-  codeblock:
-    # Code Highlight theme
-    # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic
-    # See: https://github.com/chriskempson/tomorrow-theme
-    highlight_theme: normal
-    # Add copy button on codeblock
-    copy_button:
-      enable: true
-      # Show text copy result.
-      show_result: false
-      # Available values: default | flat | mac
-      style:
-
-  # `Follow me on GitHub` banner in the top-right corner.
-  github_banner:
-    enable: true
-    permalink: https://github.com/whg517
-    title: Follow me on GitHub
-
-
-  # ---------------------------------------------------------------
-  # SEO Settings
-  # ---------------------------------------------------------------
-
-  # Google Webmaster tools verification.
-  # See: https://www.google.com/webmasters
-  google_site_verification:
-
-  # Bing Webmaster tools verification.
-  # See: https://www.bing.com/webmaster
-  bing_site_verification:
-
-  # Yandex Webmaster tools verification.
-  # See: https://webmaster.yandex.ru
-  yandex_site_verification:
-
-  # Baidu Webmaster tools verification.
-  # See: https://ziyuan.baidu.com/site
-  baidu_site_verification:
-
-  # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO.
-  baidu_push: true
-
-
-  # Blog rolls
-  links_settings:
-    icon: link
-    title: 友情链接
-    # Available values: block | inline
-    layout: block
-  links: #连接
-    example: http://example.com
-    baidu: https://www.baidu.com
-    google: https://www.google.com
+#markdown:
+#  render:
+#    html: true # 该html设置定义是否应转义文档内的HTML内容或将其传递给最终结果。
+#    xhtmlOut: false # 该xhtmlOut设置定义解析器是否将导出与XHTML完全兼容的标记。仅需要true完整的[CommonMark]支持。
+#    breaks: true  # 使源文件中的换行符将被解析为<br>标记，或者忽略
+#    linkify: true # 解析器可以内联直接粘贴到文本中的链接。
+#    typographer: true # 这样可以替代常见的排版元素，例如©，弯引号，破折号等。
+#    quotes: '“”‘’'  # Defines the double and single quotes used for substituting dumb quotes if typographer is set to true.
+#  plugins:
+#    - markdown-it-abbr
+#    - markdown-it-footnote
+#    - markdown-it-ins
+#    - markdown-it-sub
+#    - markdown-it-sup
+#  anchors:
+#    level: 2
+#    collisionSuffix: 'v'
+#    permalink: true
+#    permalinkClass: header-anchor
+#    permalinkSide: 'left'
+#    permalinkSymbol: ¶
